@@ -1,14 +1,11 @@
-var express = require('express');
-
-var index = require('./routes/index');
+const express = require('express');
 const config = require('./config/config');
-var app = express();
+const app = express();
 
-
-require('./config/express')(app, config['development']);
-require('./config/database')(config['development']);
+var env = 'development';
+require('./config/database')(config[env]);
+require('./config/express')(app, config[env]);
 require('./config/passport')();
-require('./config/route')(app);
-
+require('./config/routes')(app);
 
 module.exports = app;

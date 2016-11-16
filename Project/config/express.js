@@ -26,5 +26,5 @@ module.exports = (app, config) => {
         next();
     });
 
-    app.use(express.static(path.join(config.root, 'public')));
+    app.use(express.static(path.join(config.rootFolder, 'public')));
 };
